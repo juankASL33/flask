@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Buscar Recetas{% endblock %}
+
+{% block content %}
+<h2>Buscar por Nombre</h2>
+<form method="post" action="{{ url_for('list_recipes') }}">
+    <input type="text" name="query" placeholder="Enter recipe name" required>
+    <button type="submit" class="btn">Buscar</button>
+</form>
+{% endblock %}

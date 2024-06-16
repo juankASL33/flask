@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Recipe List{% endblock %}
+
+{% block content %}
+<h2>Recipe List</h2>
+<table>
+    <tr>
+        <th>Nombre</th>
+        <th>Ingredientes</th>
+        <th>Link</th>
+    </tr>
+    {% for recipe in recipes %}
+    <tr>
+        <td>{{ recipe.name }}</td>
+        <td>{{ recipe.ingredients|length }} ingredientes</td>
+        <td><a href="{{ url_for('recipe', recipe_id=recipe.id) }}">Detalles</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
