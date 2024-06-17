@@ -1,6 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for, abort
 import json
 
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 4000;
+
 app = Flask(__name__)
 
 # Cargar datos del archivo JSON
