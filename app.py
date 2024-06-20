@@ -1,9 +1,6 @@
+import os
 from flask import Flask, render_template, request, redirect, url_for, abort
 import json
-
-const express = require('express')
-const app = express()
-const port = process.env.PORT || 4000;
 
 app = Flask(__name__)
 
@@ -39,4 +36,5 @@ def recipe(recipe_id):
     return render_template('recipe.html', recipe=recipe)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)
