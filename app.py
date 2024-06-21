@@ -16,7 +16,12 @@ def home():
 def search():
     if request.method == 'POST':
         query = request.form.get('query').lower()
-        results = [recipe for recipe in data if query in recipe['name'].lower()]
+        ingredient_type = request.form.get('ingredient_type')
+        results = [
+            recipe for recipe in data
+            if query in recipe['name'].lower() and
+            (ingredient_type in [i['type'] for i in recipe['ingredients']] if ingredient_type else True)
+        ]
         return render_template('list.html', recipes=results)
     return render_template('search.html')
 
